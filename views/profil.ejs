@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= web.nama %>'s Profile</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40%;
+      font-size: 18pt;
+    }
+    
+    .desk{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .link{
+      display: block;
+      justify-content: center;
+      align-items: center;
+      margin-left: 5vh;
+      margin-top: 40px;
+    }
+    
+    button{
+      margin-top: 5px;
+      background-color: #202020;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      width: 90%;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <div class="title"><strong><%= web.nama %></strong></div><span class="desk"><%= web.desk %></span>
+  </div>
+  <div class="link">
+    <button><%= web.link1 %></button>
+    <button><%= web.link2 %></button>
+    <button><%= web.link3 %></button>
+  </div>
+</body>
+</html>

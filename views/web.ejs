@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= web.title %></title>
+  <style>
+    body {
+      background-color: white;
+    }
+    
+    a{
+      color: tomato;
+    }
+    
+    span {
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+  <img src=<%= web.img %> width="300"><br>
+  <span>Artikel ini dibuat oleh <%= web.nama %></span>
+  <h1><%= web.title %></h1>
+  <p><%= web.text %></p>
+<a href="#">© WebHub | 2023</a>
+</body>
+</html>
