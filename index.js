@@ -11,32 +11,32 @@ app.use(express.json())
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
 
-app.post('/new', (req,res) => {
-  if (req.body.type == 'a'){
+app.get('/new', (req,res) => {
+  if (req.query.type == 'a'){
     let datas = {
-      name: req.body.name+'-a',
-      nama: req.body.nama,
-      img: req.body.img,
-      title: req.body.title,
-      text: req.body.text
+      name: req.query.name+'-a',
+      nama: req.query.nama,
+      img: req.query.img,
+      title: req.query.title,
+      text: req.query.text
     }
     let data = JSON.stringify(datas, null, 2)
-    if(fs.readFileSync(`./web/${req.body.name}.json`)) return res.status(404).json({status: 404, result: 'Nama telah dipakai'})
-    fs.writeFileSync(`./web/${req.body.name}.json`, data)
+    if(fs.readFileSync(`./web/${req.query.name+'-a'}.json`)) return res.status(404).json({status: 404, result: 'Nama telah dipakai'})
+    fs.writeFileSync(`./web/${req.query.name+'-a'}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
   }
-  else if (req.body.type == 'p'){
+  else if (req.query.type == 'p'){
     let datas = {
-      name: req.body.name+'-p',
-      nama: req.body.nama,
-      desk: req.body.desk,
-      link1: req.body.link1,
-      link2: req.body.link2,
-      link3: req.body.link3
+      name: req.query.name+'-p',
+      nama: req.query.nama,
+      desk: req.query.desk,
+      link1: req.query.link1,
+      link2: req.query.link2,
+      link3: req.query.link3
     }
     let data = JSON.stringify(datas, null, 2)
-    if(fs.readFileSync(`./web/${req.body.name}.json`)) return res.status(404).json({status: 404, result: 'Nama telah dipakai'})
-    fs.writeFileSync(`./web/${req.body.name}.json`, data)
+    if(fs.readFileSync(`./web/${req.query.name+'-p'}.json`)) return res.status(404).json({status: 404, result: 'Nama telah dipakai'})
+    fs.writeFileSync(`./web/${req.query.name+'-p'}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
   } else {
     res.status(400).json({result: 'Not Found'})
