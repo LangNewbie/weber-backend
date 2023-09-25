@@ -14,7 +14,7 @@ app.use(bp.urlencoded({ extended: true }))
 app.get('/new', (req,res) => {
   if (req.query.type == 'a'){
     try{
-    fs.readFileSync(`./web/${req.query.name+'-a'}.json`)
+    fs.readFileSync(`./web/${req.query.name}.json`)
     res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+ err})
     } catch (err) {
       let datas = {
@@ -31,7 +31,7 @@ app.get('/new', (req,res) => {
   }
   else if (req.query.type == 'p'){
   try{
-    fs.readFileSync(`./web/${req.query.name+'-p'}.json`)
+    fs.readFileSync(`./web/${req.query.name}.json`)
     res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+err})
     } catch (err) {
     let datas = {
