@@ -14,7 +14,10 @@ app.use(bp.urlencoded({ extended: true }))
 app.get('/new', (req,res) => {
   if (req.query.type == 'a'){
     try{
-    let datas = {
+    fs.readFileSync(`./web/${req.query.name+'-a'}.json`)
+    res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+ err})
+    } catch (err) {
+      let datas = {
       name: req.query.name+'-a',
       nama: req.query.nama,
       img: req.query.img,
@@ -22,15 +25,15 @@ app.get('/new', (req,res) => {
       text: req.query.text
     }
     let data = JSON.stringify(datas, null, 2)
-    fs.readFileSync(`./web/${req.query.name+'-a'}.json`)
     fs.writeFileSync(`./web/${req.query.name+'-a'}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
-    } catch (err) {
-res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+ err})
     }
   }
   else if (req.query.type == 'p'){
   try{
+    fs.readFileSync(`./web/${req.query.name+'-p'}.json`)
+    res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+err})
+    } catch (err) {
     let datas = {
       name: req.query.name+'-p',
       nama: req.query.nama,
@@ -40,11 +43,8 @@ res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+ err})
       link3: req.query.link3
     }
     let data = JSON.stringify(datas, null, 2)
-    fs.readFileSync(`./web/${req.query.name+'-p'}.json`)
     fs.writeFileSync(`./web/${req.query.name+'-p'}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
-    } catch (err) {
-    res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+err})
   }
   } else {
     res.status(400).json({result: 'Not Found'})
