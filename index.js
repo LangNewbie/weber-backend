@@ -18,14 +18,14 @@ app.get('/new', (req,res) => {
     res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+ err})
     } catch (err) {
       let datas = {
-      name: req.query.name+'-a',
+      name: req.query.name,
       nama: req.query.nama,
       img: req.query.img,
       title: req.query.title,
       text: req.query.text
     }
     let data = JSON.stringify(datas, null, 2)
-    fs.writeFileSync(`./web/${req.query.name+'-a'}.json`, data)
+    fs.writeFileSync(`./web/${req.query.name}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
     }
   }
@@ -35,7 +35,7 @@ app.get('/new', (req,res) => {
     res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+err})
     } catch (err) {
     let datas = {
-      name: req.query.name+'-p',
+      name: req.query.name,
       nama: req.query.nama,
       desk: req.query.desk,
       link1: req.query.link1,
@@ -43,7 +43,7 @@ app.get('/new', (req,res) => {
       link3: req.query.link3
     }
     let data = JSON.stringify(datas, null, 2)
-    fs.writeFileSync(`./web/${req.query.name+'-p'}.json`, data)
+    fs.writeFileSync(`./web/${req.query.name}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
   }
   } else {
