@@ -26,7 +26,7 @@ app.get('/new', (req,res) => {
     fs.writeFileSync(`./web/${req.query.name+'-a'}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
     } catch (err) {
-res.status(404).json({status: 404, result: 'Nama telah dipakai'})
+res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+ err})
     }
   }
   else if (req.query.type == 'p'){
@@ -44,7 +44,7 @@ res.status(404).json({status: 404, result: 'Nama telah dipakai'})
     fs.writeFileSync(`./web/${req.query.name+'-p'}.json`, data)
     res.status(200).json({status: 200, result: 'Success'})
     } catch (err) {
-    res.status(404).json({status: 404, result: 'Nama telah dipakai'})
+    res.status(404).json({status: 404, result: 'Nama telah dipakai   Err : '+err})
   }
   } else {
     res.status(400).json({result: 'Not Found'})
