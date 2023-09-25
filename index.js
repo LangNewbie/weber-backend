@@ -50,7 +50,7 @@ app.post('/delete', (req,res) => {
     res.status(200).json({status: 200, result: 'Success'})
 }})
 
-app.get('/:web', (req,res) => {
+app.get('web/:web', (req,res) => {
   let key = req.params['web']
   try{
   let fileWeb = fs.readFileSync(`./web/${key}.json`)
